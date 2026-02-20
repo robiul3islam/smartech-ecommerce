@@ -1,42 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<title>Smartech BD - Home</title>
-<script src="https://cdn.tailwindcss.com"></script>
+  <title>Smartech BD</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-100">
 
 <!-- Navbar -->
-<nav class="bg-white shadow p-4">
-<div class="container mx-auto flex justify-between items-center">
-<a href="index.html" class="text-2xl font-bold text-blue-600">Smartech BD</a>
-
-<div class="flex items-center gap-4">
-<a href="products.html">Products</a>
-<a href="cart.html" class="relative text-xl">
-🛒
-<span id="cart-count"
-class="absolute -top-2 -right-3 bg-red-500 text-white text-xs px-2 rounded-full">0</span>
-</a>
-<a href="login.html" class="text-blue-600">Login</a>
-</div>
-</div>
+<nav class="bg-blue-600 text-white p-4 flex justify-between">
+  <h1 class="font-bold text-xl">Smartech BD</h1>
+  <div>
+    <a href="cart.html" class="mr-4">Cart</a>
+    <span id="userSection"></span>
+  </div>
 </nav>
 
-<!-- Hero -->
-<section class="bg-blue-600 text-white text-center py-20">
-<h1 class="text-4xl font-bold mb-4">Welcome to Smartech BD</h1>
-<p class="mb-6">Best Tech Products Online</p>
-<a href="products.html"
-class="bg-white text-blue-600 px-6 py-3 rounded font-semibold">
-Shop Now
-</a>
-</section>
+<!-- Hero Section -->
+<div class="bg-white p-8 text-center shadow">
+  <h2 class="text-3xl font-bold">Best Tech Products</h2>
+  <p class="text-gray-600 mt-2">Discount Available Now 🔥</p>
+</div>
 
+<!-- Products -->
+<div class="p-6">
+  <div id="productContainer" class="grid grid-cols-1 md:grid-cols-3 gap-4"></div>
+</div>
+
+<script src="js/auth.js"></script>
 <script src="js/products.js"></script>
 <script src="js/cart.js"></script>
-<script src="js/auth.js"></script>
+<script>
+  // Display products
+  displayProducts("productContainer");
 
+  // Show user login status
+  let userEmail = localStorage.getItem("loggedInUser");
+  let userSection = document.getElementById("userSection");
+  if(userEmail){
+    userSection.innerHTML = `<span class="mr-2">${userEmail}</span>
+      <button onclick="logout()" class="bg-red-500 px-2 rounded">Logout</button>`;
+  } else {
+    userSection.innerHTML = `<a href="login.html" class="mr-2">Login</a>
+      <a href="signup.html">Signup</a>`;
+  }
+</script>
 </body>
 </html>
