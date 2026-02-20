@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Smartech BD - Home</title>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+
+<!-- Navbar -->
+<nav class="bg-white shadow p-4">
+<div class="container mx-auto flex justify-between items-center">
+<a href="index.html" class="text-2xl font-bold text-blue-600">Smartech BD</a>
+
+<div class="flex items-center gap-4">
+<a href="products.html">Products</a>
+<a href="cart.html" class="relative text-xl">
+🛒
+<span id="cart-count"
+class="absolute -top-2 -right-3 bg-red-500 text-white text-xs px-2 rounded-full">0</span>
+</a>
+<a href="login.html" class="text-blue-600">Login</a>
+</div>
+</div>
+</nav>
+
+<!-- Hero -->
+<section class="bg-blue-600 text-white text-center py-20">
+<h1 class="text-4xl font-bold mb-4">Welcome to Smartech BD</h1>
+<p class="mb-6">Best Tech Products Online</p>
+<a href="products.html"
+class="bg-white text-blue-600 px-6 py-3 rounded font-semibold">
+Shop Now
+</a>
+</section>
+
+<script src="js/products.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/auth.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Checkout</title>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+
+<div class="container mx-auto py-12">
+<h2 class="text-3xl font-bold mb-6 text-center">Checkout</h2>
+
+<form id="checkoutForm"
+class="bg-white p-8 rounded shadow max-w-lg mx-auto">
+<input type="text" placeholder="Shipping Address"
+class="w-full border p-2 mb-4" required>
+
+<button class="w-full bg-green-600 text-white py-2 rounded">
+Place Order
+</button>
+</form>
+</div>
+
+<script>
+let currentUser=JSON.parse(localStorage.getItem("currentUser"));
+let cart=JSON.parse(localStorage.getItem("cart"))||[];
+
+if(!currentUser){
+alert("Please login first!");
+window.location.href="login.html";
+}
+
+document.getElementById("checkoutForm")
+.addEventListener("submit",function(e){
+e.preventDefault();
+localStorage.removeItem("cart");
+window.location.href="order-success.html";
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Admin Panel</title>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+
+<div class="container mx-auto py-12">
+<h2 class="text-3xl font-bold mb-6 text-center">Admin Panel</h2>
+
+<!-- Add Product Form -->
+<form id="addProductForm" class="bg-white p-6 rounded shadow mb-8 max-w-lg mx-auto">
+<h3 class="text-xl font-bold mb-4">Add New Product</h3>
+<input id="productName" type="text" placeholder="Product Name" class="w-full border p-2 mb-2" required>
+<input id="productPrice" type="number" placeholder="Price" class="w-full border p-2 mb-2" required>
+<input id="productImage" type="text" placeholder="Image URL" class="w-full border p-2 mb-2" required>
+<button class="bg-blue-600 text-white px-4 py-2 rounded mt-2">Add Product</button>
+</form>
+
+<!-- Product List -->
+<h3 class="text-xl font-bold mb-4 text-center">Products</h3>
+<div id="adminProductList" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"></div>
+
+</div>
+
+<script src="js/products.js"></script>
+<script src="js/admin.js"></script>
+</body>
+</html>

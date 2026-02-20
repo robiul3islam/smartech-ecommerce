@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cart</title>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+
+<div class="container mx-auto py-12">
+<h2 class="text-3xl font-bold mb-8 text-center">Shopping Cart</h2>
+
+<div id="cart-items"></div>
+<h3 id="total" class="text-xl font-bold mt-6"></h3>
+
+<a href="checkout.html"
+class="mt-4 inline-block bg-green-600 text-white px-6 py-2 rounded">
+Checkout
+</a>
+</div>
+
+<script src="js/products.js"></script>
+<script src="js/cart.js"></script>
+
+<script>
+const cartItems=document.getElementById("cart-items");
+let total=0;
+
+if(cart.length===0){
+cartItems.innerHTML="<p>Your cart is empty.</p>";
+}else{
+cart.forEach(item=>{
+total+=item.price*item.quantity;
+
+cartItems.innerHTML+=`
+<div class="bg-white p-4 mb-4 rounded shadow flex justify-between">
+<div>
+<h3>${item.name}</h3>
+<p>$${item.price} x ${item.quantity}</p>
+</div>
+<div class="flex gap-2">
+<button onclick="updateQuantity(${item.id},-1)"
+class="bg-gray-300 px-3">-</button>
+<button onclick="updateQuantity(${item.id},1)"
+class="bg-gray-300 px-3">+</button>
+</div>
+</div>`;
+});
+}
+
+document.getElementById("total").innerText="Total: $"+total;
+</script>
+
+</body>
+</html>
